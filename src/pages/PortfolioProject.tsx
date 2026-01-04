@@ -138,7 +138,7 @@ export default function PortfolioProject() {
         {/* Links */}
         <section className="flex flex-wrap justify-center gap-6 pt-10">
           <a
-            href="https://your-portfolio-link-here"
+            href="https://portfolio-ruddy-beta-51.vercel.app/"
             target="_blank"
             className="px-8 py-3 bg-emerald-400 text-gray-900 font-semibold rounded-full hover:scale-105 transition"
           >
@@ -146,7 +146,7 @@ export default function PortfolioProject() {
           </a>
 
           <a
-            href="https://github.com/NathashaOshani/portfolio"
+            href="https://github.com/NathashaOshani/MyPortfolio"
             target="_blank"
             className="px-8 py-3 border border-emerald-400 text-emerald-400 rounded-full hover:bg-emerald-400 hover:text-gray-900 transition"
           >
