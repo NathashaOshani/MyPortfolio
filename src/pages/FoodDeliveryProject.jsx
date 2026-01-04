@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import demoVideo from '../assets/food-delivery/demo.mp4';
+
 
 const images = [
   '/food-delivery/img1.png',
@@ -157,9 +159,10 @@ export default function FoodDeliveryProject() {
   controls
   className="w-full h-auto rounded-xl border border-gray-700"
 >
-  <source src="/food-delivery/demo.mp4" type="video/mp4" />
+  <source src={demoVideo} type="video/mp4" />
   Your browser does not support the video tag.
 </video>
+
 
         </section>
 
