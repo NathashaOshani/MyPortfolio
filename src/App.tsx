@@ -7,7 +7,7 @@ import FoodDeliveryProject from "./pages/FoodDeliveryProject";
 import UIUXProjects from "./pages/UIUXProjects";
 import ThreeDCarouselProject from "./pages/ThreeDCarouselProject";
 import TodoProject from "./pages/TodoProject";
-
+import PortfolioProject from "./pages/PortfolioProject"; // ✅ Add this
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Route path="/ui-ux-projects" element={<UIUXProjects />} />
         <Route path="/uiux-3d-carousel" element={<ThreeDCarouselProject />} />
         <Route path="/todo-project" element={<TodoProject />} />
+        <Route path="/portfolio-project" element={<PortfolioProject />} /> {/* ✅ New route */}
       </Routes>
     </div>
   );
