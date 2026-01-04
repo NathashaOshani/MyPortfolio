@@ -59,26 +59,29 @@ export default function WebDevelopmentProjects(): JSX.Element {
             </div>
           </div>
 
-          {/* Portfolio Web Dev Project */}
-          <div
-            onClick={() => goToProject("/portfolio")}
-            className="cursor-pointer bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-emerald-400 transition group"
-          >
-            <img
-              src="/portfolio/portfoliocover.png"
-              alt="Portfolio Web Development"
-              className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="p-5 space-y-2">
-              <h3 className="text-xl font-semibold">💻 Portfolio Website</h3>
-              <p className="text-gray-300 text-sm">
-                My personal portfolio showcasing web development projects and skills.
-              </p>
-              <span className="inline-block mt-3 text-emerald-400 font-semibold text-sm">
-                View Full Project →
-              </span>
-            </div>
-          </div>
+         {/* Portfolio Web Dev Project */}
+<a
+  href="https://my-portfolio-wheat-tau-9mgfua26nr.vercel.app" // <-- replace with your live portfolio URL
+  target="_blank" // opens in a new tab
+  rel="noopener noreferrer"
+  className="cursor-pointer block bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-emerald-400 transition group"
+>
+  <img
+    src="/portfolio/portfoliocover.png"
+    alt="Portfolio Web Development"
+    className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
+  />
+  <div className="p-5 space-y-2">
+    <h3 className="text-xl font-semibold">💻 Portfolio Website</h3>
+    <p className="text-gray-300 text-sm">
+      My personal portfolio showcasing web development projects and skills.
+    </p>
+    <span className="inline-block mt-3 text-emerald-400 font-semibold text-sm">
+      View Full Project →
+    </span>
+  </div>
+</a>
+
 
           {/* To-Do Web App Project */}
           <div

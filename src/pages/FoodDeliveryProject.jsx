@@ -154,14 +154,13 @@ export default function FoodDeliveryProject() {
           </h2>
 
           <video
-            controls
-            className="w-full h-auto rounded-xl border border-gray-700"
-          >
-            <source
-              src="/food-delivery/demo.mp4"
-              type="video/mp4"
-            />
-          </video>
+  controls
+  className="w-full h-auto rounded-xl border border-gray-700"
+>
+  <source src="/food-delivery/demo.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
         </section>
 
         {/* Links */}
