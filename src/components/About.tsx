@@ -1,5 +1,6 @@
-import { ArrowUpRight, GraduationCap, Users, Sparkles, Terminal, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, GraduationCap, Users, Terminal, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import AboutBackground from './AboutBackground';
 
 const milestones = [
   {
@@ -33,8 +34,12 @@ const milestones = [
 
 export default function About() {
   return (
-    <section id="about" aria-labelledby="about-heading" className="about-section py-20">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
+    <section id="about" aria-labelledby="about-heading" className="about-section py-20 relative overflow-hidden">
+
+      {/* ── Animated Background ──────────────────────────── */}
+      <AboutBackground />
+
+      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10 relative">
         <div className="about-heading-row">
           <div>
             <p className="section-kicker">01 / THE PERSON BEHIND THE CODE</p>

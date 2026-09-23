@@ -180,13 +180,7 @@ export default function Hero() {
               <>
                 <div className="workspace-content">
                   <div className="relative portrait-stage">
-                    <span className="portrait-orbit" aria-hidden="true" />
                     <ProfilePortrait priority />
-                    <span className="portrait-caption font-mono">&lt;developer in progress /&gt;</span>
-                    <div className="floating-chip">
-                      B.Sc. (Hons) IT
-                      <span>University of Moratuwa</span>
-                    </div>
                   </div>
                 </div>
                 <div className="profile-code font-mono text-xs">
