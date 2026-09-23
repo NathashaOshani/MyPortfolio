@@ -24,13 +24,11 @@ export default function TodoProject() {
         {/* Title */}
         <header className="space-y-4 text-center">
           <h1 className="text-5xl md:text-5xl font-extrabold text-emerald-400">
-            ✅ Todo Web Application
+            ✅ TaskFlow
           </h1>
 
           <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-            A modern and fully functional Todo web application built using React,
-            focusing on clean UI, smooth user experience, and strong frontend
-            architecture.
+            TaskFlow isn't just your standard to-do list—it's designed to help you tackle overwhelming goals by breaking them down into actionable steps using AI.
           </p>
         </header>
 
@@ -41,10 +39,7 @@ export default function TodoProject() {
           </h2>
 
           <p className="text-gray-300 max-w-4xl leading-relaxed">
-            This project was developed to strengthen my understanding of React
-            fundamentals, component-based design, and real-world UI behavior.
-            The application keeps the interface simple and user-friendly while
-            maintaining a scalable and clean code structure.
+            I've just finished building and deploying a brand new, highly interactive task management application. This project was developed to bridge static frontends with serverless backends and craft high-end, eye-catching user interfaces.
           </p>
         </section>
 
@@ -56,12 +51,10 @@ export default function TodoProject() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              "➕ Add, edit, delete, and complete tasks",
-              "⭐ Priority-based task management",
-              "📅 Due-date handling with overdue logic",
-              "✨ Smooth animations for task interactions",
-              "💾 Persistent storage using LocalStorage",
-              "🧩 Clean and maintainable component structure",
+              "🤖 AI Goal Breakdown: Powered by the Google Gemini API to generate an ordered, achievable step-by-step plan.",
+              "🎨 Responsive & Beautiful UI: Dark-mode glassmorphism design, custom CSS gradients, and smooth micro-animations.",
+              "⚡ Lightning Fast: Fully local-first for standard tasks, utilizing browser localStorage for instant load times.",
+              "☁️ Serverless Architecture: Secure AI backend through Vercel Serverless Functions with custom built-in rate limiting.",
             ].map((feature, index) => (
               <div
                 key={index}
@@ -80,13 +73,12 @@ export default function TodoProject() {
           </h2>
 
           <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-300">
-            <li>⚛️ React (Vite)</li>
-            <li>📜 JavaScript (ES6+)</li>
-            <li>🎨 Custom CSS</li>
+            <li>⚛️ React 18</li>
+            <li>⚡ Vite</li>
             <li>🎞️ Framer Motion</li>
-            <li>🪝 React Hooks (useState, useEffect)</li>
-            <li>💾 Browser LocalStorage</li>
-            <li>🛠️ Git & GitHub</li>
+            <li>🤖 Google Gemini API</li>
+            <li>☁️ Vercel</li>
+            <li>🎨 Glassmorphism & Custom CSS</li>
           </ul>
         </section>
 
@@ -98,17 +90,16 @@ export default function TodoProject() {
 
   <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
     {[
-      "/todo-app/todo1.png",
-      "/todo-app/todo2.png",
-      "/todo-app/todo3.png",
-      "/todo-app/todo4.png",
+      "/todo-app/taskflow1.png",
+      "/todo-app/taskflow2.png",
+      "/todo-app/taskflow3.png",
     ].map((img, index) => (
       <img
         key={index}
         src={img}
-        alt={`Todo App Screenshot ${index + 1}`}
+        alt={`TaskFlow Screenshot ${index + 1}`}
         className={`rounded-xl border border-gray-700 hover:scale-105 transition-transform duration-300 w-full h-80 object-cover ${
-          index === 2 ? "justify-self-center md:justify-self-center" : ""
+          index === 2 ? "justify-self-center md:col-span-2 md:w-1/2" : ""
         }`}
       />
     ))}
@@ -127,7 +118,7 @@ export default function TodoProject() {
 
           <div className="flex flex-wrap justify-center gap-6">
             <a
-              href="https://todo-app-iota-tawny.vercel.app"
+              href="https://todo-app-iota-tawny.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 border border-emerald-400 rounded-full text-emerald-400 hover:bg-emerald-400 hover:text-gray-900 transition font-semibold"

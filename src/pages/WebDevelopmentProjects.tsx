@@ -44,14 +44,14 @@ export default function WebDevelopmentProjects(): JSX.Element {
             className="cursor-pointer bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-emerald-400 transition group"
           >
             <img
-              src="/food-delivery/img1.png"
+              src="/food-delivery/daily1.png"
               alt="Food Delivery System"
               className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
             <div className="p-5 space-y-2">
-              <h3 className="text-xl font-semibold">🍔 Food Delivery System</h3>
+              <h3 className="text-xl font-semibold">🍔 DailyDish</h3>
               <p className="text-gray-300 text-sm">
-                Responsive React food ordering UI with cart flow and routing.
+                Full-stack food ordering with customer checkout, order tracking, and restaurant administration.
               </p>
               <span className="inline-block mt-3 text-emerald-400 font-semibold text-sm">
                 View Full Project →
@@ -61,20 +61,20 @@ export default function WebDevelopmentProjects(): JSX.Element {
 
 
 
-          {/* To-Do Web App Project */}
+          {/* TaskFlow Web App Project */}
           <div
             onClick={() => goToProject("/todo-project")}
             className="cursor-pointer bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-emerald-400 transition group"
           >
             <img
-              src="/todo-app/todoc.jpeg"
-              alt="To-Do Web App"
+              src="/todo-app/taskflow1.png"
+              alt="TaskFlow Web App"
               className="h-48 w-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
             />
             <div className="p-5 space-y-2">
-              <h3 className="text-xl font-semibold">✅ To-Do Web App</h3>
+              <h3 className="text-xl font-semibold">✅ TaskFlow</h3>
               <p className="text-gray-300 text-sm">
-                Task management web app with add, edit, delete, and local storage.
+                AI-driven task management application to break down overwhelming goals into actionable steps.
               </p>
               <span className="inline-block mt-3 text-emerald-400 font-semibold text-sm">
                 View Full Project →

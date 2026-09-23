@@ -1,208 +1,101 @@
-import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight, Github } from 'lucide-react';
 
-// Import your video from src/assets
-import demoVideo from '../assets/food-delivery/demo.mp4';
-
-const images = [
-  '/food-delivery/img1.png',
-  '/food-delivery/img2.png',
-  '/food-delivery/img3.png',
-  '/food-delivery/img4.png',
-  '/food-delivery/img5.png',
-  '/food-delivery/img6.png',
-  '/food-delivery/img7.png',
-  '/food-delivery/img8.png',
+const images = Array.from({ length: 10 }, (_, index) => `/food-delivery/daily${index + 1}.png`);
+const customerFeatures = [
+  'Browse dishes by category and view detailed information.',
+  'Customize orders with available variants and options.',
+  'Manage cart items and delivery addresses.',
+  'Apply promotional coupons and place orders.',
+  'Track order progress and view order history.',
+];
+const administratorFeatures = [
+  'Manage dishes, categories, prices, and availability.',
+  'Monitor inventory and stock levels.',
+  'View incoming customer orders and update their statuses.',
+  'Create and manage promotional coupons.',
+  'Moderate customer ratings and reviews.',
+];
+const stack = [
+  { title: 'Frontend', tools: ['React.js', 'HTML5', 'CSS3', 'JavaScript (ES6+)', 'React Router', 'Context API', 'Vite'] },
+  { title: 'Backend & database', tools: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose'] },
+  { title: 'Security & documentation', tools: ['JWT', 'bcrypt', 'Swagger / OpenAPI'] },
 ];
 
 export default function FoodDeliveryProject() {
-  const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
 
-  const nextSlide = () =>
-    setCurrent((prev) => (prev + 1) % images.length);
-
-  const prevSlide = () =>
-    setCurrent((prev) => (prev - 1 + images.length) % images.length);
-
   return (
-    <section className="min-h-screen py-20 px-8 bg-gradient-to-br from-gray-900 via-slate-900 to-emerald-950 text-white relative">
-      
-      {/* Back Button */}
-      <button
-        onClick={() => navigate('/web-development-projects')}
-        className="absolute top-8 right-8 px-6 py-2 border border-emerald-400 rounded-full text-emerald-400 hover:bg-emerald-400 hover:text-gray-900 transition z-10"
-      >
-        ← Back to Portfolio
-      </button>
+    <main className="min-h-screen bg-[#090e17] px-6 py-12 text-slate-200 sm:py-16 lg:px-10">
+      <div className="mx-auto max-w-6xl space-y-16">
+        <Link to="/" state={{ scrollToLatest: true }} className="inline-flex items-center gap-2 text-sm text-emerald-300 hover:text-white"><ArrowLeft size={16} /> Back to Projects</Link>
 
-      <div className="max-w-6xl mx-auto space-y-20">
-
-        {/* Title */}
-        <header className="space-y-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-emerald-400 drop-shadow-lg">
-            Food Delivery System
-          </h1>
-          <p className="text-gray-200 text-xl md:text-xl max-w-3xl mx-auto leading-relaxed">
-            A responsive and modern <span className="text-teal-400 font-semibold">Food Delivery Web Application</span> built
-            with React as a self-learning frontend project. Focused on UI/UX, responsiveness, and real-world flow
-          </p>
+        <header className="max-w-3xl space-y-6">
+          <p className="font-mono text-xs uppercase tracking-widest text-emerald-300">Full-stack food ordering application</p>
+          <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl">DailyDish<span className="text-emerald-400">.</span></h1>
+          <p className="text-lg leading-relaxed text-slate-300">Connecting the customer ordering experience with restaurant administration, from discovering and customizing dishes to managing inventory and tracking orders.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://lnkd.in/gvsg94pj" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-emerald-300"><Github size={17} /> Frontend repository <ArrowUpRight size={15} /></a>
+            <a href="https://lnkd.in/gKV_fTca" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-emerald-400/40 px-5 py-3 text-sm font-semibold text-emerald-300 hover:bg-emerald-400/10"><Github size={17} /> Backend repository <ArrowUpRight size={15} /></a>
+          </div>
         </header>
 
-        {/* Overview & Features */}
-        <section className="space-y-6 md:space-y-0 md:flex md:gap-12">
-          {/* Project Overview */}
-          <div className="md:w-1/2 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-400 tracking-wide mb-4">
-              Project Overview
-            </h2>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              This project simulates a real-world food ordering experience where users
-              can browse restaurants, view menus, add items to cart, and proceed to checkout.
-              The backend is currently under development and will be integrated in future phases.
-            </p>
-          </div>
+        <section aria-labelledby="dailydish-overview" className="border-t border-slate-800 pt-10">
+          <h2 id="dailydish-overview" className="text-2xl font-semibold text-white">Project overview</h2>
+          <p className="mt-5 max-w-3xl leading-8 text-slate-300">DailyDish is a completed full-stack food-ordering application built with React, Node.js, Express, and MongoDB. It brings customer browsing, cart management, and ordering together with the tools administrators need to maintain dishes, stock, promotions, and order statuses.</p>
+        </section>
 
-          {/* Key Features */}
-          <div className="md:w-1/2 text-center md:text-left md:pl-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-400 tracking-wide mb-4">
-              Key Features
-            </h2>
-            <ul className="list-none space-y-3 text-gray-300 text-lg leading-relaxed">
-              <li className="flex items-center gap-3">
-                <span className="text-emerald-400 text-xl">🏠</span>
-                Homepage with featured restaurants and offers
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-emerald-400 text-xl">📋</span>
-                Menu browsing with categories and item details
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-emerald-400 text-xl">🛒</span>
-                Add to Cart and order summary
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-emerald-400 text-xl">💳</span>
-                Checkout UI with user and payment details
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="text-emerald-400 text-xl">📱</span>
-                Fully responsive design for all devices
-              </li>
-            </ul>
+        <div className="grid gap-8 md:grid-cols-2">
+          {[{ title: 'Customer experience', features: customerFeatures }, { title: 'Restaurant administration', features: administratorFeatures }].map(({ title, features }) => (
+            <section key={title} className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold text-white">{title}</h2>
+              <ul className="mt-6 space-y-4">
+                {features.map((feature) => <li key={feature} className="flex gap-3 text-sm leading-7 text-slate-300"><span aria-hidden="true" className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />{feature}</li>)}
+              </ul>
+            </section>
+          ))}
+        </div>
+
+        <section aria-labelledby="dailydish-engineering" className="space-y-6">
+          <h2 id="dailydish-engineering" className="text-2xl font-semibold text-white">Behind the scenes</h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              { title: 'Authentication & access', description: 'JWT authentication, bcrypt password hashing, and role-based access control support customer and administrator workflows.' },
+              { title: 'Order consistency', description: 'Request validation, inventory reservation, and duplicate-order protection help maintain consistency throughout the ordering lifecycle.' },
+              { title: 'API integration', description: 'RESTful APIs connect the frontend and backend, with interactive Swagger / OpenAPI documentation for exploring API endpoints.' },
+            ].map(({ title, description }) => <div key={title} className="border-l border-emerald-400/40 pl-5"><h3 className="font-semibold text-emerald-200">{title}</h3><p className="mt-3 text-sm leading-7 text-slate-400">{description}</p></div>)}
           </div>
         </section>
 
-        {/* Tech Stack */}
-        <section className="space-y-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-400 tracking-wide">
-            Tech Stack
-          </h2>
-          <div className="flex flex-wrap justify-center gap-6 mt-4">
-            <div className="bg-gray-800 px-6 py-4 rounded-xl shadow-lg text-lg font-semibold">
-              ⚛️ React.js
-            </div>
-            <div className="bg-gray-800 px-6 py-4 rounded-xl shadow-lg text-lg font-semibold">
-              🧭 React Router
-            </div>
-            <div className="bg-gray-800 px-6 py-4 rounded-xl shadow-lg text-lg font-semibold">
-              🧠 Context API
-            </div>
-            <div className="bg-gray-800 px-6 py-4 rounded-xl shadow-lg text-lg font-semibold">
-              🎨 HTML5 / CSS3
-            </div>
-            <div className="bg-gray-800 px-6 py-4 rounded-xl shadow-lg text-lg font-semibold">
-              🧩 JavaScript (ES6+)
-            </div>
+        <section aria-labelledby="dailydish-stack" className="space-y-6">
+          <h2 id="dailydish-stack" className="text-2xl font-semibold text-white">Tech stack</h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            {stack.map(({ title, tools }) => <div key={title}><h3 className="mb-4 text-sm text-slate-400">{title}</h3><ul className="flex flex-wrap gap-2">{tools.map((tool) => <li key={tool} className="rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200">{tool}</li>)}</ul></div>)}
           </div>
         </section>
 
-        {/* Image Slider */}
-        <section className="space-y-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-400 tracking-wide">
-            Application Screens
-          </h2>
-
-          <div className="relative flex justify-center">
-            <img
-              src={images[current]}
-              alt="Food Delivery UI"
-              className="rounded-xl border border-gray-700 max-w-full max-h-[600px] h-auto"
-            />
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-900/60 px-5 py-3 rounded-full text-emerald-400 text-2xl font-bold shadow-lg hover:bg-emerald-400 hover:text-gray-900 transition transform hover:scale-110"
-            >
-              ‹
-            </button>
-            <motion.button
-              onClick={nextSlide}
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              whileTap={{ scale: 0.95 }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-emerald-400 text-gray-900 text-3xl font-bold w-14 h-14 flex items-center justify-center rounded-full shadow-2xl ring-2 ring-emerald-300 hover:ring-4 transition transform"
-            >
-              ›
-            </motion.button>
+        <section aria-labelledby="dailydish-screens" className="space-y-6">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <h2 id="dailydish-screens" className="text-2xl font-semibold text-white">Application screens</h2>
+            <div className="flex items-center gap-4">
+              <button type="button" aria-label="Previous screenshot" onClick={() => setCurrent((value) => (value - 1 + images.length) % images.length)} className="rounded-lg border border-slate-700 p-3 hover:border-emerald-400"><ChevronLeft size={18} /></button>
+              <span aria-live="polite" className="font-mono text-xs text-slate-400">{current + 1} / {images.length}</span>
+              <button type="button" aria-label="Next screenshot" onClick={() => setCurrent((value) => (value + 1) % images.length)} className="rounded-lg border border-slate-700 p-3 hover:border-emerald-400"><ChevronRight size={18} /></button>
+            </div>
+          </div>
+          <div className="flex min-h-48 items-center justify-center overflow-hidden rounded-xl border border-slate-800 bg-slate-900 p-2 sm:p-4"><img src={images[current]} alt={`DailyDish application screenshot ${current + 1} of ${images.length}`} className="max-h-[600px] w-full object-contain" loading="lazy" /></div>
+          <div className="flex flex-wrap gap-6 text-sm text-emerald-300">
+            <a href="https://food-delivery-frontend-tau-one.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white">Visit frontend demo <ArrowUpRight size={16} /></a>
+            <a href="https://drive.google.com/file/d/1EcoXsI3YGSSSmOhRbk0SoaLSEcrnerLj/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white">Watch project video <ArrowUpRight size={16} /></a>
           </div>
         </section>
 
-     {/* Project Video */}
-<section className="space-y-6 text-center">
-  <h2 className="text-3xl font-semibold text-emerald-400 border-l-4 border-emerald-400 pl-4 text-left">
-    Project Video
-  </h2>
-
-  <p className="text-gray-300 max-w-3xl mx-auto">
-    Watch the complete Food Delivery System in action, showcasing restaurant browsing, menu selection, cart management, and a seamless checkout experience.
-  </p>
-
-  <a
-    href="https://drive.google.com/file/d/1EcoXsI3YGSSSmOhRbk0SoaLSEcrnerLj/view?usp=sharing" // Replace with your actual Drive link
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-500 text-gray-900 font-semibold rounded-full hover:bg-emerald-400 transition shadow-lg"
-  >
-    ▶ Watch Project Video
-  </a>
-</section>
-
-
-        {/* Links */}
-        <section className="space-y-10 text-center">
-          <h2 className="text-4xl font-bold text-emerald-400 tracking-wide">
-            Project Links
-          </h2>
-
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-            Explore the live website or dive into the source code on GitHub.
-            Experience the fully responsive design and modern UI/UX we built with React.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-8 mt-6">
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              href="https://food-delivery-frontend-tau-one.vercel.app/"
-              target="_blank"
-              className="px-10 py-4 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 text-gray-900 font-bold shadow-lg hover:shadow-2xl transition transform"
-            >
-              🌐 Live Website
-            </motion.a>
-
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              href="https://github.com/NathashaOshani/Food-Delivery-website-frontend"
-              target="_blank"
-              className="px-10 py-4 rounded-full border-2 border-emerald-400 text-emerald-400 font-bold hover:bg-emerald-400 hover:text-gray-900 shadow-lg hover:shadow-2xl transition transform"
-            >
-              💻 GitHub Repository
-            </motion.a>
-          </div>
+        <section aria-labelledby="dailydish-learning" className="border-t border-slate-800 pt-10">
+          <h2 id="dailydish-learning" className="text-2xl font-semibold text-white">What I learned</h2>
+          <p className="mt-5 max-w-3xl leading-8 text-slate-300">Building DailyDish strengthened my understanding of frontend-backend integration, database design, authentication, API development, and inventory management. It helped me connect individual features into a consistent ordering lifecycle, from the customer cart to restaurant administration.</p>
         </section>
-
       </div>
-    </section>
+    </main>
   );
 }

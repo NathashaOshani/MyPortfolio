@@ -33,8 +33,7 @@ export default function UIUXProjects() {
           {/* 3D Carousel Card */}
           <div
             onClick={() => {
-              window.scrollTo(0, 0);
-              navigate("/uiux-3d-carousel");
+              window.open("https://drive.google.com/file/d/1kh3Vda0bpjCIV7GQ8EY_1HgWIwOeXcLP/view?usp=sharing", "_blank");
             }}
             className="cursor-pointer bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-emerald-400 transition group"
           >
@@ -52,7 +51,7 @@ export default function UIUXProjects() {
                 in Figma.
               </p>
               <span className="inline-block mt-3 text-emerald-400 font-semibold text-sm">
-                View Design →
+                Watch Design Video ↗
               </span>
             </div>
           </div>

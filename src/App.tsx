@@ -5,9 +5,9 @@ import MicrocontrollerProject from "./pages/MicrocontrollerProject";
 import WebDevelopmentProjects from "./pages/WebDevelopmentProjects";
 import FoodDeliveryProject from "./pages/FoodDeliveryProject";
 import UIUXProjects from "./pages/UIUXProjects";
-import ThreeDCarouselProject from "./pages/ThreeDCarouselProject";
 import TodoProject from "./pages/TodoProject";
-import PortfolioProject from "./pages/PortfolioProject"; // ✅ Add this
+import PortfolioProject from "./pages/PortfolioProject";
+import UbeProject from "./pages/UbeProject";
 
 function App() {
   return (
@@ -18,9 +18,9 @@ function App() {
         <Route path="/web-development-projects" element={<WebDevelopmentProjects />} />
         <Route path="/food-delivery-project" element={<FoodDeliveryProject />} />
         <Route path="/ui-ux-projects" element={<UIUXProjects />} />
-        <Route path="/uiux-3d-carousel" element={<ThreeDCarouselProject />} />
         <Route path="/todo-project" element={<TodoProject />} />
-        <Route path="/portfolio-project" element={<PortfolioProject />} /> {/* ✅ New route */}
+        <Route path="/portfolio-project" element={<PortfolioProject />} />
+        <Route path="/ube-project" element={<UbeProject />} />
       </Routes>
     </div>
   );

@@ -1,115 +1,120 @@
-import { useState, useEffect, useRef } from "react";
-import {
-  Code2,
-  Monitor,
-  Server,
-  Database,
-  GitBranch,
-  Laptop,
-  ChevronDown,
-} from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from 'react';
+import { Code2, Database, ShieldCheck, Laptop, Monitor, Server, Sparkles, PenTool, ArrowUpRight, Terminal, GitBranch, Cpu, Layers } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 
-type SkillsProps = {
-  preventAutoOpen?: boolean;
-};
+const skillCategories = [
+  { title: 'Languages', icon: Code2, description: 'The foundations behind application logic and problem solving.', skills: ['C', 'C#', 'Java', 'Python', 'JavaScript', 'TypeScript'] },
+  { title: 'Frontend Development', icon: Monitor, description: 'Interfaces, components, and the details of the user experience.', skills: ['React', 'Vite', 'Material UI', 'HTML', 'CSS', 'Axios', 'Zod'] },
+  { title: 'Backend & APIs', icon: Server, description: 'Application services, API communication, and real-time connections.', skills: ['ASP.NET Core Web API', 'Node.js', 'Express.js', 'RESTful APIs', 'SignalR'] },
+  { title: 'Databases & ORM', icon: Database, description: 'Organizing application data and connecting it to code.', skills: ['Microsoft SQL Server', 'MongoDB', 'Entity Framework Core', 'Mongoose', 'Database Design'] },
+  { title: 'Authentication & Security', icon: ShieldCheck, description: 'Identity, authentication, and access within applications.', skills: ['JWT', 'BCrypt', 'OAuth 2.0', 'Google Sign-In', 'Role-Based Access Control'] },
+  { title: 'Embedded Systems & Tools', icon: Laptop, description: 'Hardware components and the tools that support my workflow.', skills: ['ESP32', 'ESP32-CAM', 'R503 Fingerprint Sensor', 'PIR Sensor', 'Git', 'GitHub', 'Postman', 'Swagger', 'Visual Studio', 'VS Code'] },
+  { title: 'Design Tools', icon: PenTool, description: 'A space for exploring interfaces and visual ideas.', skills: ['Figma'] },
+  { title: 'AI Tools', icon: Sparkles, description: 'AI assistants in my development toolkit.', skills: ['ChatGPT', 'Codex', 'Copilot', 'Claude'] },
+];
 
-export default function Skills({ preventAutoOpen }: SkillsProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const sectionRef = useRef<HTMLElement | null>(null);
+const marqueeSkills = [
+  'React 18', 'TypeScript', 'ASP.NET Core', 'Node.js', 'C#', 'Java', 'Python', 'MS SQL Server',
+  'MongoDB', 'RESTful APIs', 'SignalR', 'JWT Auth', 'ESP32 IoT', 'Git & GitHub', 'Postman', 'Vite',
+  'Tailwind CSS', 'Entity Framework', 'Swagger', 'Docker',
+];
 
-  const skillCategories = [
-    { title: "Programming", icon: <Code2 size={28} />, skills: ["Python","Java","PHP","JavaScript","C","Arduino"] },
-    { title: "Frontend Development", icon: <Monitor size={28} />, skills: ["HTML","CSS","React JS"] },
-    { title: "Backend Development", icon: <Server size={28} />, skills: ["Node JS"] },
-    { title: "Database Technologies", icon: <Database size={28} />, skills: ["MySQL"] },
-    { title: "Version Controlling", icon: <GitBranch size={28} />, skills: ["Git"] },
-    { title: "Operating Systems", icon: <Laptop size={28} />, skills: ["Windows","Ubuntu"] },
-  ];
-
-  // Auto-open first accordion only if preventAutoOpen is false
-  useEffect(() => {
-    if (preventAutoOpen) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setOpenIndex(0);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-
-    return () => observer.disconnect();
-  }, [preventAutoOpen]);
-
-  const handleMouseEnter = (index: number) => setOpenIndex(index);
+export default function Skills() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
+  const activeCategory = skillCategories[activeIndex];
+  const ActiveIcon = activeCategory.icon;
 
   return (
-    <section id="skills" ref={sectionRef} className="min-h-screen flex items-center py-20">
-      <div className="max-w-5xl mx-auto px-8 w-full">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl font-bold text-center text-white mb-16"
-        >
-          My <span className="text-emerald-400">Skills</span>
-        </motion.h2>
+    <section id="skills" aria-labelledby="skills-heading" className="py-20 relative overflow-hidden">
+      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
+        <div className="skills-intro mb-8">
+          <div>
+            <span className="skills-eyebrow flex items-center gap-2">
+              <Terminal size={15} aria-hidden="true" />
+              <span>MY DEVELOPMENT ENVIRONMENT</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+            </span>
+            <h2 id="skills-heading" className="font-bold text-white">Technical <span className="text-emerald-400">Skills</span></h2>
+            <p>From the interface to the API.<br className="hidden sm:block" /> The tools I use to bring ideas to life.</p>
+          </div>
+          <a href="#latest-projects" className="skills-project-link">See them in action <ArrowUpRight size={18} aria-hidden="true" /></a>
+        </div>
 
-        <div className="space-y-6">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-800/50 backdrop-blur-sm border-2 border-gray-700 rounded-2xl overflow-hidden hover:border-emerald-400 transition-all"
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={() => setOpenIndex(null)}
-            >
-              <div className="w-full flex items-center justify-between p-6 text-left cursor-pointer">
-                <div className="flex items-center gap-4">
-                  <span className="text-emerald-400">{category.icon}</span>
-                  <h3 className="text-2xl font-bold text-white">{category.title}</h3>
-                </div>
-                <ChevronDown
-                  size={26}
-                  className={`text-emerald-400 transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`}
-                />
+        {/* 🚀 MOVING IT MOTION: Infinite Tech Stream Marquee */}
+        <div className="relative w-full overflow-hidden rounded-xl border border-slate-800/80 bg-[#0a121d] py-3 mb-10 shadow-inner">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#0a121d] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#0a121d] to-transparent z-10" />
+          
+          <div className="animate-marquee flex items-center gap-3">
+            {[...marqueeSkills, ...marqueeSkills].map((item, idx) => (
+              <span
+                key={`${item}-${idx}`}
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-900/60 px-3.5 py-1.5 font-mono text-xs text-slate-300 hover:border-emerald-400/60 hover:text-emerald-300 transition-colors shrink-0 shadow-sm"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80" />
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="skills-workspace">
+          <div className="skills-categories" role="group" aria-label="Skill categories">
+            {skillCategories.map(({ title, icon: Icon }, index) => (
+              <button
+                key={title}
+                type="button"
+                aria-pressed={activeIndex === index}
+                aria-controls="skills-detail"
+                onClick={() => setActiveIndex(index)}
+                className={`skills-category transition-all duration-200 ${
+                  activeIndex === index ? 'shadow-md shadow-emerald-500/10' : ''
+                }`}
+              >
+                <Icon size={19} aria-hidden="true" />
+                <span>{title}</span>
+                <span className="skills-terminal-prompt" aria-hidden="true">&gt;_</span>
+              </button>
+            ))}
+          </div>
+
+          <div id="skills-detail" role="region" aria-labelledby="skill-category-heading" aria-live="polite" aria-atomic="true" className="skills-detail">
+            <div className="skills-window-bar" aria-hidden="true">
+              <span className="skills-window-dots"><i /><i /><i /></span>
+              <span>toolkit / explorer</span>
+              <Code2 size={16} />
+            </div>
+            <motion.div className="skills-content" key={activeCategory.title} initial={reduceMotion ? false : { opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 0.25 }}>
+              <div className="skills-command" aria-hidden="true"><span>~/skills $</span> explore --category {String(activeIndex + 1).padStart(2, '0')}<span className="skills-cursor" /></div>
+              <div className="skills-detail-heading">
+                <span className="skills-category-icon"><ActiveIcon size={27} strokeWidth={1.5} aria-hidden="true" /></span>
+                <h3 id="skill-category-heading">{activeCategory.title}</h3>
               </div>
-
-              <AnimatePresence initial={false}>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="px-6 pb-6"
+              <p className="skills-description">{activeCategory.description}</p>
+              <ul className="skills-tool-list">
+                {activeCategory.skills.map((skill, index) => (
+                  <motion.li
+                    key={skill}
+                    initial={reduceMotion ? false : { opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: reduceMotion ? 0 : 0.22, delay: reduceMotion ? 0 : index * 0.045 }}
+                    className="hover:border-emerald-500/50 hover:bg-emerald-950/20 transition-all"
                   >
-                    <ul
-                      className={`gap-4 mt-4 ${
-                        category.title === "Frontend Development" ? "flex flex-col" : "grid sm:grid-cols-2"
-                      }`}
-                    >
-                      {category.skills.map((skill, i) => (
-                        <li key={i} className="text-gray-300 text-lg flex items-center gap-3">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    <span aria-hidden="true" />
+                    {skill}
+                  </motion.li>
+                ))}
+              </ul>
             </motion.div>
-          ))}
+            <div className="skills-status-bar">
+              <span><GitBranch size={14} aria-hidden="true" /> always-learning</span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                {activeCategory.skills.length} tools verified
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
