@@ -66,7 +66,7 @@ export default function Hero() {
               </span>
             </div>
             <h1 className="hero-name">
-              Nathasha<br /><span className="hero-gradient">Manage<span className="text-emerald-400">.</span></span>
+              Nathasha<br /><span className="hero-gradient pr-2">Manage</span>
             </h1>
             <p className="max-w-xl text-xl font-medium leading-snug tracking-tight text-slate-200 sm:text-2xl">
               Software Engineering & QA Aspirant
