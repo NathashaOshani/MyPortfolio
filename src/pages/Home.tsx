@@ -19,7 +19,6 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
   const reduceMotion = useReducedMotion();
-
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => { if (entry.isIntersecting) setActiveSection(entry.target.id); });

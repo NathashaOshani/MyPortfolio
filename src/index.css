@@ -452,3 +452,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .animate-portrait-float {
   animation: portraitFloat 6s ease-in-out infinite;
 }
+
+
+@keyframes slideRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
